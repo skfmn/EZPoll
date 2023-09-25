@@ -35,7 +35,7 @@ Once you have logged in you can and should change your login info.
 You can wrap the code above in a span or div tag and use CSS to define the objects in the code.
 
   EXAMPLE:
-	
+'''	
 <div id="poll_wrapper">
   <!-- #include virtual="/poll/poll.asp"-->
 </div>
@@ -52,7 +52,7 @@ You can wrap the code above in a span or div tag and use CSS to define the objec
   #poll_wrapper a {color:#AAAAAA;}
 	#poll_wrapper a.button {color:#FFFFFF}
 </style>
-
+'''
 You can define most attributes like fonts, alignments and such!
 
 You can also display it in an iframe:
