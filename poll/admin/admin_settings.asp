@@ -42,8 +42,9 @@ on error resume next
 
         strSiteTitle = DBEncode(Request.Form("sitename"))
         strDomainname = DBEncode(Request.Form("domainname"))
+        strBarColor = DBEncode(Request.Form("percentbar"))
 
-        strSQL = "UPDATE " & msdbprefix & "settings SET site_title = '"&strSiteTitle&"', domain_name = '"&strDomainname&"'"
+        strSQL = "UPDATE " & msdbprefix & "settings SET site_title = '"&strSiteTitle&"', domain_name = '"&strDomainname&"', bar_color = '"&strBarColor&"'"
         Call getExecuteQuery(strSQL)
 
         Response.Cookies("msg") = "siu"
@@ -64,27 +65,22 @@ on error resume next
     <div class="row uniform">
         <div class="-1u 10u$ 12u$(medium)">
             <h3>Site Settings</h3>
-<% 
-    Set rsCommon = Server.CreateObject("ADODB.Recordset")
-    Call getTableRecordset(msdbprefix & "settings",rsCommon)
-    If Not rsCommon.EOF Then
-        strSiteTitle = DBDecode(rsCommon("site_title"))
-        strDomainname = DBDecode(rsCommon("domain_name"))
-    End If
-    Call closeRecordset(rsCommon)
-%>
             <form action="admin_settings.asp" method="post">
                 <input type="hidden" name="chmstgs" value="y" />
                 <div class="row">
-                    <div class="4u 12u$(medium)">
+                    <div class="3u 12u$(medium)">
                         <label for="sitename">Site Name</label>
                         <input type="text" id="sitename" name="sitename" value="<%= strSiteTitle %>" />
                     </div>
-                    <div class="4u 12u$(medium)">
+                    <div class="3u 12u$(medium)">
                         <label for="domainname">Domain Name</label>
                         <input type="text" id="domainname" name="domainname" value="<%= strDomainname %>" />
                     </div>
-                    <div class="4u$ 12u$(medium)">
+                    <div class="3u 12u$(medium)">
+                        <label for="percentbar"><a class="picimg" href="#notice" style="color:#676767;">Percentage bar color</a> </label>
+                        <input type="text" id="percentbar" name="percentbar" value="<%= strBarColor %>" />
+                    </div>
+                    <div class="3u$ 12u$(medium)">
                         <label for="submit">&nbsp;</label>
                         <input class="button fit" type="submit" name="submit" value="Save Settings" style="vertical-align:bottom;" />
                     </div>
@@ -156,5 +152,14 @@ on error resume next
             </div>
         </div>
     </div>
+</div>
+<div style="display:none;max-width:600px;padding:5px;" id="notice">
+    <h2>Percentage bar color</h2>
+    <h5>Exceptable formats:</h5>
+    <ol>
+        <li>#0000ff</li>
+        <li>blue</li>
+        <li>RGB(0,0,255)</li>
+    </ol>
 </div>
 <!-- #include file="../includes/footer.asp"-->

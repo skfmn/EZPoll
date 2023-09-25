@@ -1,5 +1,6 @@
 <!-- #include file="includes/general_includes.asp"-->
 <%
+on error resume next
 	intPollID = 0
 	intChoiceID = 0
 	total = 0
@@ -85,7 +86,7 @@
 	If Request.Cookies("EZPoll")("pollid"&intPollID) <> "" Then
 	    blnVoted = True
 	End If
-	
+
 	If Trim(Request.QueryString("show")) = "results" Then
 
 	    Call showResults 

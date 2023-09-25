@@ -30,6 +30,9 @@
 	Dim strHideResults
 	Dim strActive
 	Dim datStartDate
+	Dim strSiteTitle
+    Dim strDomainname
+    Dim strBarColor
 
 	action = Trim(Request.QueryString("action"))
 	show = Trim(Request.QueryString("show"))

@@ -4,8 +4,10 @@
   <title>EZPoll Demo</title>
   <link type="text/css" rel="stylesheet" href="/poll/assets/css/main.css" />
   <style type="text/css">
-    #poll_wrapper {font-size:12px;color:#BBBBBB;}
-    #poll_wrapper a {color:#AAAAAA;}
+    #poll_wrapper {font-size:16px;color:#676767;}
+    #poll_wrapper a {color:#49639f;}
+    #poll_wrapper a.button {background-color:#49639f;}
+    #poll_wrapper h2, h4 {color:#676767;}
   </style>
 </head>
 <body>
@@ -14,6 +16,5 @@
 <!-- #include virtual="/poll/poll.asp"-->
 <!-- End Poll Include -->
 </div>
-
 </body>
 </html>

@@ -160,7 +160,8 @@ on error resume next
     Conn.Execute "CREATE TABLE "&msdbprefix&"settings "& _
     "([settingID] [numeric](10, 0) IDENTITY (1, 1) CONSTRAINT [PK_"&msdbprefix&"settings] PRIMARY KEY, " & _
     "[site_title] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL, " & _
-    "[domain_name] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL)"
+    "[domain_name] [nvarchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL, " & _
+    "[bar_color] [nvarchar] (25) COLLATE SQL_Latin1_General_CP1_CI_AS NULL)"
 
 	If Err.Number <> 0 then
 		response.Write "Error: "&err.description&"<br />"
@@ -391,7 +392,7 @@ on error resume next
         Set Conn = Server.CreateObject("ADODB.Connection")
         Conn.Open "Provider=sqloledb;Data Source="&msdbserver&";Initial Catalog="&msdb&";User Id="&msdbid&";Password="&msdbpwd
 
-        Conn.Execute "INSERT INTO "&msdbprefix&"settings ([site_title],[domain_name]) VALUES ('"&Trim(Request.Form("sitetitle"))&"','"&Trim(Request.Form("domainname"))&"')"
+        Conn.Execute "INSERT INTO "&msdbprefix&"settings ([site_title],[domain_name],[bar_color]) VALUES ('"&Trim(Request.Form("sitetitle"))&"','"&Trim(Request.Form("domainname"))&"','green')"
 
         Conn.Close: Set Conn = Nothing
 
@@ -413,7 +414,7 @@ on error resume next
           <br>
           Click on "Password" in the left options menu and change your password.
           <br><br>
-          <a class="first" href="../admin/admin_login.asp">Login</a>
+          <a class="button" href="../admin/admin_login.asp">Login</a>
         </span>
       </div>
     </div>

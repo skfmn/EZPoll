@@ -1,7 +1,20 @@
 <%
-    strVersion = "4.0"
+    strVersion = "4"
 
     ConnStr = "Provider=sqloledb;Data Source="&msdbserver&";Initial Catalog="&msdb&";User Id="&msdbid&";Password="&msdbpwd
+
+	Set Conn = Server.CreateObject("ADODB.Connection")
+	Call ConnOpen(Conn)
+
+    Set rsCommon = Server.CreateObject("ADODB.Recordset")
+    Call getTableRecordset(msdbprefix & "settings",rsCommon)
+    If Not rsCommon.EOF Then
+        strSiteTitle = DBDecode(rsCommon("site_title"))
+        strDomainname = DBDecode(rsCommon("domain_name"))
+        strBarColor = DBDecode(rsCommon("bar_color"))
+    End If
+    Call closeRecordset(rsCommon)
+	Call ConnClose(Conn)
 
 	Function getResponse(sURL)
 		Dim strTemp
@@ -155,14 +168,14 @@
             %>
             <% If Not blnHideResults Then %>
             <div class="-3u 3u 12u$(small)" style="padding-bottom: 10px;">
-                <a class="button" onclick="return validateVote();">Vote</a>
+                <a class="button" onclick="return validateVote();" style="font-size:12px;">Vote</a>
             </div>
             <div class="3u$ 12u$(small)" style="padding-bottom: 10px;">
-                <a class="button" href="?show=results">Show results</a>
+                <a class="button" href="?show=results" style="font-size:12px;">Show results</a>
             </div>
             <% Else %>
             <div class="-3u 6u$ 12u$(small)" style="padding-bottom: 10px;">
-                <a class="button" onclick="document.pollvote.submit()">Vote</a>
+                <a class="button" onclick="document.pollvote.submit()" style="font-size:12px;">Vote</a>
             </div>
             <% End If %>
         </div>
@@ -248,10 +261,10 @@
 				intCounter = intCounter+1
         %>
         <div class="-3u 6u$ 12u$(small)" style="margin-bottom: -5px">
-            <span style="font-size: 14px"><%= intCounter %>. <%= DBDecode(rsTemp("pAnswer")) %>&nbsp;&nbsp;<span style="font-size: 10px"><%= rsTemp("votes") %> (<%= totalCountC(rsTemp("votes"),total) %>)</span></span>
+            <span style="font-size: 16px"><%= intCounter %>. <%= DBDecode(rsTemp("pAnswer")) %>&nbsp;&nbsp;<span style="font-size: 10px"><%= rsTemp("votes") %> (<%= totalCountC(rsTemp("votes"),total) %>)</span></span>
         </div>
         <div class="-3u 6u$ 12u$(small)" style="padding-bottom: 10px;">
-            <img src="/poll/images/Image1.jpg" style="height: 10px; width: <%= totalCount(rsTemp("votes"),total) %>; border: 0px;" />
+			<div style="height: 10px; width: <%= totalCount(rsTemp("votes"),total) %>; border: 0px;background-color:<%= strBarColor %>;">&nbsp;</div>
         </div>
         <%
 				rsTemp.MoveNext
@@ -263,9 +276,9 @@
         %>
         <div class="-3u 6u$ 12u$(small)">
             <% If Request.Cookies("EZPoll")("pollid"&intPollID) = "" Then %>
-            <a class="button" href="?show=vote">Vote</a>
+            <a class="button" href="?show=vote" style="font-size:12px;">Vote</a>
             <% ElseIf Request.Cookies("EZPoll")("pollid"&intPollID) <> "" AND blnPollRevote Then %>
-            <a class="button" href="?change=<%= intPollID %>">Change Vote</a>
+            <a class="button" href="?change=<%= intPollID %>" style="font-size:12px;">Change Vote</a>
             <% End If %>
         </div>
         <div class="-3u 3u 12u$(small)" style="padding-top: 10px;padding-bottom: 10px;">

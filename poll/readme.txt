@@ -1,6 +1,7 @@
 *****************************************************
 * EZPoll v4                      
-* copyright 2007 - 2023 by Steve Frazier                             
+* copyright 2007 - 2023 by Steve Frazier
+*
 * www.aspjunction.com                               
 *                                                   
 * You may not sell this script                      
@@ -61,7 +62,7 @@ You can also display it in an iframe:
 I can install any of the EZCodes for a fee.
 If you would like some custom ASP coding done I am available and I charge reasonable rates
 
-Please contact admin@htmljunction.com
+Please contact admin@aspjunction.com
 
 Change Log:
 

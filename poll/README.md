@@ -1,6 +1,6 @@
 **************************************
 * EZPoll v4 
-* copyright 2007 - 2023 by Steve frazier                     
+* copyright 2007 - 2023 by Steve Frazier                     
 *                            
 * www.aspjunction.com                               
 *                                                   
@@ -58,11 +58,11 @@ You can define most attributes like fonts, alignments and such!
 You can also display it in an iframe:
 
 <iframe src="/poll/demo.asp" height="600" width="900"></iframe>
-		
+
 I can install any of the EZCodes for a fee.
 If you would like some custom ASP coding done I am available and I charge reasonable rates
 
-Please contact admin@htmljunction.com
+Please contact admin@aspjunction.com
 
 
 Change Log:
@@ -71,7 +71,7 @@ V 1.0 - Basic version with only one poll and little else.
         .1 - .5 - Buch of stuff was changed including a new look and multiple Polls.
 	
 V 2.0 - New look
-        .1 Implimented jQuery tabs and Fancybox plugin.
+        .1 Implemented jQuery tabs and Fancybox plugin.
 				
 V 3.0 - Completely re-written code
         .1 New look.

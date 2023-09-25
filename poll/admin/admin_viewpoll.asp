@@ -125,8 +125,8 @@
     <div class="-3u 6u 12u(medium)" style="margin-bottom:-5px">
       <span class="first" style="font-size:14px"><%= intCounter %>. <%= DBDecode(rsCommon("pAnswer")) %>&nbsp;&nbsp;<span class="first" style="font-size:10px"><%= rsCommon("votes") %> (<%= totalCountC(rsCommon("votes"),total) %>)</span></span>
     </div>
-    <div class="-3u 6u 12u(medium)" style="padding-bottom:10px;">
-      <img src="/poll/images/Image1.jpg" style="height:10px;width:<%= totalCount(rsCommon("votes"),total) %>;border:0px;" />
+    <div class="-3u 6u$ 12u$(small)" style="padding-bottom: 10px;">
+		<div style="height: 10px; width: <%= totalCount(rsCommon("votes"),total) %>; border: 0px;background-color:<%= strBarColor %>;">&nbsp;</div>
     </div>
 <%
 				rsCommon.MoveNext
@@ -136,9 +136,16 @@
 		Call closeRecordset(rsCommon)
 	    Call ConnClose(Conn)
 %>
-    <div class="-3u 6u 12u(medium)">
+    <div class="-3u 6u$ 12u$(medium)">
       <span class="first" style="font-size:10px">There Are <%= total %> Votes!</span>
     </div>
+	<div class="-3u 4u$ 12u$(medium)" style="margin-top:20px;">
+    <form action="admin_editpoll.asp" method="post">
+        <input type="hidden" name="show" value="yes" />
+        <input type="hidden" name="pollid" value="<%= intPollID %>" />
+        <input class="button" type="submit" name="submit" value="Edit this poll" />
+    </form>
+</div>
   </div>
 <% End If %>
 </div>
