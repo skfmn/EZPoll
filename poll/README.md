@@ -11,7 +11,7 @@
 **************************************
 
 
-*******************Installation Instructions*******************************
+***Installation Instructions***
 
 Create an MSSQL Database for your Poll, if your not sure how contact your hosting provider
 
@@ -28,14 +28,14 @@ You will be able to login at:
 Login using "admin" as your login name AND password. 
 Once you have logged in you can and should change your login info.
 	
-<!-- #include virtual="/poll/poll.asp"-->
+`<!-- #include virtual="/poll/poll.asp"-->`
 		 
-************Customization Hint***************************************
+***Customization Hint***
 
 You can wrap the code above in a span or div tag and use CSS to define the objects in the code.
 
-  EXAMPLE:
-	
+**EXAMPLE:**
+```	
 <div id="poll_wrapper">
   <!-- #include virtual="/poll/poll.asp"-->
 </div>
@@ -52,12 +52,12 @@ You can wrap the code above in a span or div tag and use CSS to define the objec
   #poll_wrapper a {color:#AAAAAA;}
 	#poll_wrapper a.button {color:#FFFFFF}
 </style>
-
+```
 You can define most attributes like fonts, alignments and such!
 
 You can also display it in an iframe:
 
-<iframe src="/poll/demo.asp" height="600" width="900"></iframe>
+`<iframe src="/poll/demo.asp" height="600" width="900"></iframe>`
 
 I can install any of the EZCodes for a fee.
 If you would like some custom ASP coding done I am available and I charge reasonable rates
@@ -67,18 +67,19 @@ Please contact admin@aspjunction.com
 
 Change Log:
 
-V 1.0 - Basic version with only one poll and little else.
-        .1 - .5 - Buch of stuff was changed including a new look and multiple Polls.
+V 1.0 - Basic version with only one poll and little else:
+* .1 
+  * .5 - Buch of stuff was changed including a new look and multiple Polls.
 	
-V 2.0 - New look
-        .1 Implemented jQuery tabs and Fancybox plugin.
+V 2.0 - New look:
+* .1 Implemented jQuery tabs and Fancybox plugin.
 				
-V 3.0 - Completely re-written code
-        .1 New look.
-				.2 Modified to allow voters to change vote.
-				.3 Added ability to add more options on the edit page.
+V 3.0 - Completely re-written code:
+* .1 New look.
+* .2 Modified to allow voters to change vote.
+* .3 Added ability to add more options on the edit page.
 
-V 4.0 - Completely re-written code...again
-        New look.
-		Added Admins page.
-		Added settings page. 
+V 4.0 - Completely re-written code...again:
+* New look.
+* Added Admins page.
+* Added settings page. 
